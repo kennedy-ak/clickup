@@ -3,3 +3,4 @@ plotly
 markdown
 groq
 gunicorn
+requests
