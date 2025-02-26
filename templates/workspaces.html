@@ -1,0 +1,35 @@
+
+
+{% extends "base.html" %}
+
+{% block title %} Workspaces{% endblock %}
+
+{% block content %}
+<h1 class="mb-4"><i class=""></i> Your ClickUp Workspaces</h1>
+
+<div class="row">
+    {% if teams %}
+        {% for team in teams %}
+        <div class="col-md-4 mb-4">
+            <div class="card card-dashboard h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ team.name }}</h5>
+                    <p class="card-text text-muted">ID: {{ team.id }}</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="{{ url_for('spaces', team_id=team.id) }}" class="btn btn-primary">
+                        <i class="bi bi-box"></i> View Spaces
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                No workspaces found. Make sure your API token has access to at least one workspace.
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
