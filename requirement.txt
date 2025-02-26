@@ -1,0 +1,5 @@
+flask
+plotly 
+markdown
+groq
+gunicorn
